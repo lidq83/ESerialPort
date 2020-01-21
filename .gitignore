@@ -1,0 +1,10 @@
+release
+release/*
+.vscode
+.vscode/*
+.config
+.cproject
+.qmake.stash
+*.user
+ui
+ui/*
