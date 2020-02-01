@@ -4,6 +4,12 @@
 #
 #-------------------------------------------------
 
+CFLAGS				+=	-Wno-deprecated-copy
+CFLAGS				+=	-Wno-unused-parameter  
+
+QMAKE_CXXFLAGS		+=	-std=c++11 $${CFLAGS}
+QMAKE_CFLAGS		+=	-std=gnu11 $${CFLAGS}
+
 QT       += core gui serialport
 
 DESTDIR += release
