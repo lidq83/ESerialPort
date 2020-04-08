@@ -33,6 +33,7 @@ protected slots:
 
 private:
     void updateTxRxCnt(void);
+	void rebindPorts(void);
 
 private:
     Ui::Widget *ui;
