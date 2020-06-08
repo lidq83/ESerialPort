@@ -140,7 +140,10 @@ void Widget::slotSendData(void)
 	}
 	else
 	{
-		cntTx += serial->write(ui->textEditTx->toPlainText().toUtf8());
+		QByteArray ba = ui->textEditTx->toPlainText().toUtf8();
+		QString text = ui->textEditTx->toPlainText();
+		text = text.replace("\n", "\r\n");
+		cntTx += serial->write(text.toUtf8());
 	}
 	updateTxRxCnt();
 }
@@ -226,6 +229,9 @@ void Widget::slotReadData(void)
 
 void Widget::slotClearRx(void)
 {
+	cntTx = 0;
+	cntRx = 0;
+	updateTxRxCnt();
 	ui->textEditRx->clear();
 }
 

@@ -108,6 +108,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="btnSendFile">
+       <property name="text">
+        <string>SendFile</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnClearRx">
        <property name="text">
         <string>ClearRx</string>
@@ -271,11 +278,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnSendFile</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>slotSendFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>600</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>477</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotOpenClose()</slot>
   <slot>slotSendData()</slot>
   <slot>slotAutoRepeat()</slot>
   <slot>slotClearRx()</slot>
+  <slot>slotSendFile()</slot>
  </slots>
 </ui>
