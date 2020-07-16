@@ -235,6 +235,11 @@ void Widget::slotClearRx(void)
 	ui->textEditRx->clear();
 }
 
+void Widget::slotReflush(void)
+{
+	rebindPorts();
+}
+
 void Widget::updateTxRxCnt(void)
 {
 	QString st;

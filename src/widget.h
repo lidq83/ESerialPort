@@ -30,6 +30,7 @@ protected slots:
     void slotAutoRepeat(void);
     void slotReadData(void);
     void slotClearRx(void);
+	void slotReflush(void);
 
 private:
     void updateTxRxCnt(void);

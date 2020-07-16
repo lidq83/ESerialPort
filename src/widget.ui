@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>955</width>
+    <width>961</width>
     <height>623</height>
    </rect>
   </property>
@@ -75,6 +75,13 @@
      </item>
      <item>
       <widget class="QComboBox" name="combWrapCols"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="bntReflush">
+       <property name="text">
+        <string>Reflush</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnOpenClose">
@@ -294,6 +301,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>bntReflush</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>slotReflush()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>836</x>
+     <y>24</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>slotOpenClose()</slot>
@@ -301,5 +324,6 @@
   <slot>slotAutoRepeat()</slot>
   <slot>slotClearRx()</slot>
   <slot>slotSendFile()</slot>
+  <slot>slotReflush()</slot>
  </slots>
 </ui>
