@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>961</width>
+    <width>1043</width>
     <height>623</height>
    </rect>
   </property>
@@ -93,7 +93,14 @@
     </layout>
    </item>
    <item>
-    <widget class="QTextEdit" name="textEditRx"/>
+    <widget class="QTextEdit" name="textEditRx">
+     <property name="font">
+      <font>
+       <family>YaHei Consolas Hybrid</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QTextEdit" name="textEditTx">
@@ -102,6 +109,12 @@
        <width>16777215</width>
        <height>160</height>
       </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>YaHei Consolas Hybrid</family>
+       <pointsize>12</pointsize>
+      </font>
      </property>
     </widget>
    </item>
