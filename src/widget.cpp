@@ -49,6 +49,8 @@ Widget::Widget(QWidget* parent)
 
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(slotSendData()));
+	connect(&timerClear, SIGNAL(timeout()), this, SLOT(slotTimerClear()));
+	timerClear.start(1000);
 }
 
 Widget::~Widget()
@@ -236,18 +238,6 @@ void Widget::slotReadData(void)
 		updateTxRxCnt();
 	}
 	buff.clear();
-
-	if (ui->chkAutoClear->isChecked())
-	{
-		QString txt = ui->textEditRx->toPlainText();
-		
-		if (txt.size() > TXT_BUFF_SIZE)
-		{
-			QString res = txt.right(TXT_BUFF_SIZE);
-			ui->textEditRx->setText(res);
-			ui->textEditRx->moveCursor(QTextCursor::End);
-		}
-	}
 }
 
 void Widget::slotClearRx(void)
@@ -282,5 +272,21 @@ void Widget::rebindPorts(void)
 	{
 		QSerialPortInfo spInfo = sps.at(i);
 		ui->combPort->addItem(spInfo.portName());
+	}
+}
+
+void Widget::slotTimerClear(void)
+{
+	if (!ui->chkAutoClear->isChecked())
+	{
+		return;
+	}
+
+	QString txt = ui->textEditRx->toPlainText();
+	if (txt.size() > TXT_BUFF_SIZE)
+	{
+		QString res = txt.right(TXT_BUFF_SIZE / 2);
+		ui->textEditRx->setText(res);
+		ui->textEditRx->moveCursor(QTextCursor::End);
 	}
 }

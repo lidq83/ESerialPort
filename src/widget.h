@@ -33,6 +33,7 @@ protected slots:
 	void slotReadData(void);
 	void slotClearRx(void);
 	void slotReflush(void);
+	void slotTimerClear(void);
 
 private:
 	void updateTxRxCnt(void);
@@ -42,6 +43,7 @@ private:
 	Ui::Widget* ui;
 	QSerialPort* serial;
 	QTimer* timer;
+	QTimer timerClear;
 	quint32 cntTx;
 	quint32 cntRx;
 	quint32 cntHexMode;
