@@ -9,3 +9,5 @@ release/*
 ui
 ui/*
 Makefile
+.qt_for_python
+.qt_for_python/*

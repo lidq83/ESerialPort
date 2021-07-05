@@ -1,10 +1,12 @@
 #include "widget.h"
+
 #include "ui_widget.h"
 
-const char HEXNUM[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+const char HEXNUM[16] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
-Widget::Widget(QWidget *parent) : QWidget(parent),
-								  ui(new Ui::Widget)
+Widget::Widget(QWidget* parent)
+	: QWidget(parent)
+	, ui(new Ui::Widget)
 {
 	ui->setupUi(this);
 	serial = nullptr;
@@ -57,6 +59,15 @@ Widget::~Widget()
 void Widget::slotOpenClose(void)
 {
 	QMessageBox msgBox;
+
+	if (timer->isActive())
+	{
+		timer->stop();
+	}
+	if (ui->chkAutoRepeat->isChecked())
+	{
+		ui->chkAutoRepeat->setChecked(false);
+	}
 
 	if (serial == nullptr)
 	{
@@ -225,6 +236,18 @@ void Widget::slotReadData(void)
 		updateTxRxCnt();
 	}
 	buff.clear();
+
+	if (ui->chkAutoClear->isChecked())
+	{
+		QString txt = ui->textEditRx->toPlainText();
+		
+		if (txt.size() > TXT_BUFF_SIZE)
+		{
+			QString res = txt.right(TXT_BUFF_SIZE);
+			ui->textEditRx->setText(res);
+			ui->textEditRx->moveCursor(QTextCursor::End);
+		}
+	}
 }
 
 void Widget::slotClearRx(void)
