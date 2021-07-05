@@ -11,7 +11,7 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 
-#define TXT_BUFF_SIZE (1024 * 8)
+#define TXT_BUFF_SIZE (1024 * 64)
 
 namespace Ui
 {
